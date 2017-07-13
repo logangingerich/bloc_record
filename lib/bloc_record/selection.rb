@@ -211,6 +211,11 @@ module Selection
       else
         raise "#{name} is not a valid method."
       end
+    elsif m.match(/update_name/)
+      name = m.to_s.split('update_name')[1]
+      if columns.include?(name)
+        update(name, *args)
+      end
     end
   end
 end
